@@ -20,7 +20,7 @@ int main() {
 	setlocale(LC_ALL, "rus");
 
 	Square sq(3.0);
-	//sq.CalculateArea();
+	sq.CalculateArea();
 	sq.ShowInfo();
 
 	Triangle tr(4.0, 5.0);

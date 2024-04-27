@@ -7,6 +7,7 @@ class Shape {
 public:
 
 	virtual void ShowInfo() = 0;
+
 	virtual std::string GetName() = 0;
 };
 

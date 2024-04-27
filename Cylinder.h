@@ -3,10 +3,14 @@
 #include <cmath>
 
 class Cylinder : public Shape3D {
+
 private:
+
 	Circle baseCircle;
 	float CylinderHeight;
+
 public:
+
 	Cylinder(float CylinderHeight, float radius)
 		:CylinderHeight(CylinderHeight), baseCircle(radius) {}
 
