@@ -3,10 +3,14 @@
 #include <cmath>
 
 class TriangularPyramid : public Shape3D {
+
 private:
+
 	Triangle baseTriangle;
 	float PyramidHeight;
+
 public:
+
 	TriangularPyramid(float h, float base, float height)
 		:PyramidHeight(h), baseTriangle(base, height) {}
 

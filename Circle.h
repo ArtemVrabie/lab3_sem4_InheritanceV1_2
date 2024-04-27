@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include <Shape2D.h>
+
 
 constexpr auto PI = 3.14;
 
