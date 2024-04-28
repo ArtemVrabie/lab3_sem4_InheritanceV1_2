@@ -1,11 +1,19 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include "Shape2D.h"
 
 class Triangle : public Shape2D {
 private:
+
+	void CalculateArea() override {
+		area = (base * height) / 2;
+	}
+
 	float base, height;
+
 public:
+
 	virtual void ShowInfo() = 0;
 	virtual std::string GetName() = 0;
 
@@ -15,10 +23,9 @@ public:
 	string GetName() override {
 		return "triangle";
 	}
-	void CalculateArea() override {
-		area = (base * height) / 2;
-	}
+	
 	float GetArea() override {
+		CalculateArea();
 		return this->area;
 	}
 	void ShowInfo() override {

@@ -1,12 +1,15 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include "Shape.h"
 
 class Shape2D : public Shape {
+protected:
+
+	virtual void CalculateArea() = 0;
+	float area;
 
 public:
 
-	float area;
-	virtual void CalculateArea() = 0;
 	virtual float GetArea() = 0;
 };

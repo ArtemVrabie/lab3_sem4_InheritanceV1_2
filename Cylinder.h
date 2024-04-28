@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include "Shape3D.h"
+#include "Circle.h"
 
 class Cylinder : public Shape3D {
 

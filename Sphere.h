@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include "Shape3D.h"
+#include "Circle.h"
 
 class Sphere : public Shape3D {
 private:

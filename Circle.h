@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-
+#include "Shape2D.h"
 
 constexpr auto PI = 3.14;
 
@@ -15,6 +15,7 @@ public:
 		this->area = radius * radius * PI;
 	}
 	float GetArea() override {
+		CalculateArea();
 		return this->area;
 	}
 	string GetName() override {

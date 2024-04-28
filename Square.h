@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include "Shape2D.h"
 
 class Square : public Shape2D {
 private:
@@ -15,6 +16,7 @@ public:
 		return "Square";
 	}
 	float GetArea() override {
+		CalculateArea();
 		return this->area;
 	}
 	void ShowInfo() override {

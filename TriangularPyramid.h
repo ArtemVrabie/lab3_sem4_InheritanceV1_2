@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include "Shape3D.h"
+#include "Triangle.h"
 
 class TriangularPyramid : public Shape3D {
 
