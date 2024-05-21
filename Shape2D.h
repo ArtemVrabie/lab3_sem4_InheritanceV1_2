@@ -1,15 +1,27 @@
-#include <iostream>
-#include <string>
-#include <cmath>
+
 #include "Shape.h"
 
 class Shape2D : public Shape {
 protected:
-
-	virtual void CalculateArea() = 0;
-	float area;
-
+    float area = 0;
+    void virtual CalculateArea() = 0;
 public:
 
-	virtual float GetArea() = 0;
+    float GetArea() {
+        CalculateArea();
+        return area;
+    }
+
+    bool operator> (Shape2D* shape) {
+        return area > shape->GetArea();
+    }
+
+    bool operator< (Shape2D* shape) {
+        return !(area > shape->GetArea());
+    }
+
+    bool operator== (Shape2D* shape) {
+        return area == shape->area;
+    }
+
 };

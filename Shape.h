@@ -1,15 +1,17 @@
 
-#include <iostream>
 #include <string>
-#include <cmath>
 
 class Shape {
+private:
+
+	std::string name;
 
 public:
 
+	virtual void Scale(float scaleFactor) = 0;
 
 	virtual void ShowInfo() = 0;
 
-	virtual std::string GetName() = 0;
+	std::string virtual GetName() = 0;
 };
 

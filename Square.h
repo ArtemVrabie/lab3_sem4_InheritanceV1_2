@@ -5,24 +5,30 @@
 
 class Square : public Shape2D {
 private:
-	float side;
+    float side;
+    void CalculateArea() override {
+        area = side * side;
+    }
 public:
-	Square(float side)
-		: side(side) {}
-	void CalculateArea() override {
-		this->area = side * side;
-	}
-	string GetName() {
-		return "Square";
-	}
-	float GetArea() override {
-		CalculateArea();
-		return this->area;
-	}
-	void ShowInfo() override {
-		CalculateArea();
-		std::cout << "Я квадрат " << std::endl;
-		std::cout << "Моя сторона = " << side << std::endl;
-		std::cout << "Моя площадь = " << GetArea() << "\n" << std::endl;
-	}
+    Square(float side)
+        : side(side) {}
+
+    void Scale(float scaleFactor) override
+    {
+
+        side *= scaleFactor;
+        CalculateArea();
+
+    };
+
+    void ShowInfo() override
+    {
+        std::cout << "Я - " << GetName() << "Моя площадь - " << GetArea() << "!\n\tМоя сторона - " << side << "!";
+    }
+
+    std::string GetName() override
+    {
+        return "квадрат!\n\t";
+    }
+
 };

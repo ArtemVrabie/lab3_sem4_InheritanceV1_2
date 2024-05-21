@@ -1,11 +1,28 @@
 #include <iostream>
 #include <string>
-#include <cmath>
+#include "Shape.h"
 
 class Shape3D : public Shape {
-private:
+protected:
+    float volume = 0;
+    void virtual CalculateVolume() = 0;
 public:
-	float volume;
-	virtual float GetVolume() = 0;
-	virtual void CalculateVolume() = 0;
+    void GetVolume() {
+        CalculateVolume();
+        std::cout << "\n\t Мой объем - " << volume << "!!!\n\t";
+    }
+
+    bool operator> (Shape3D* shape) {
+        return volume > shape->volume;
+    }
+
+    bool operator< (Shape3D* shape) {
+        return !(volume > shape->volume);
+    }
+
+    bool operator== (Shape3D* shape) {
+        return volume == shape->volume;
+    }
+
+
 };

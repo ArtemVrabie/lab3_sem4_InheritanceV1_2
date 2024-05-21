@@ -1,35 +1,37 @@
 #include <iostream>
-#include <string>
-#include <cmath>
 #include "Shape3D.h"
 #include "Circle.h"
 
 class Cylinder : public Shape3D {
-
 private:
-
-	Circle baseCircle;
-	float CylinderHeight;
-
+    Circle* circle;
+    float height;
+    void CalculateVolume() override {
+        volume = circle->GetArea() * height;
+    }
 public:
+    Cylinder(Circle* circle, float height)
+        : circle(circle), height(height) {}
 
-	Cylinder(float CylinderHeight, float radius)
-		:CylinderHeight(CylinderHeight), baseCircle(radius) {}
+    void Scale(float scaleFactor) override
+    {
 
-	float GetVolume() override {
-		return volume;
-	}
-	string GetName() override {
-		return "Я цилиндр!";
-	}
-	void CalculateVolume() override {
-		baseCircle.CalculateArea();
-		volume = baseCircle.GetArea() * CylinderHeight * 1 / 3;
-	}
-	void ShowInfo() override {
+        circle->Scale(scaleFactor);
+        height *= scaleFactor;
+        CalculateVolume();
 
-		std::cout << this->GetName() << std::endl;
-		std::cout << "Моя высота = " << CylinderHeight << std::endl;
-		std::cout << "Мой объем = " << this->GetVolume() << "\n" << std::endl;
-	}
+    };
+
+    void ShowInfo() override
+    {
+        std::cout << "Я - " << GetName();
+        GetVolume();
+        std::cout << "Площадь моего основания - " << circle->GetArea() << "!\n\tМоя высота - " << height << "!";
+    }
+
+    std::string GetName() override
+    {
+        return "цилиндр!\n\t";
+    }
+
 };

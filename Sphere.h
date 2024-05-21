@@ -1,29 +1,35 @@
 #include <iostream>
-#include <string>
-#include <cmath>
 #include "Shape3D.h"
 #include "Circle.h"
 
 class Sphere : public Shape3D {
 private:
-	float radius;
+    float radius;
+    void CalculateVolume() override {
+        volume = 4 * 3.1415 * pow(radius, 2) / 3;
+    }
 public:
-	Sphere(float radius)
-		:radius(radius) {}
+    Sphere(float radius)
+        : radius(radius) {}
 
-	float GetVolume() override {
-		return volume;
-	}
-	string GetName() override {
-		return "Я сфера!";
-	}
-	void CalculateVolume() override {
-		volume = 4 / 3 * PI * pow(radius, 3);
-	}
-	void ShowInfo() override {
-		CalculateVolume();
-		std::cout << this->GetName() << std::endl;
-		std::cout << "Мой радиус = " << radius << std::endl;
-		std::cout << "Мой объем = " << this->GetVolume() << "\n" << std::endl;
-	}
+    void Scale(float scaleFactor) override
+    {
+
+        radius *= scaleFactor;
+        CalculateVolume();;
+
+    };
+
+    void ShowInfo() override
+    {
+        std::cout << "Я - " << GetName();
+        GetVolume();
+        std::cout << "Мой радиус - " << radius << "!";
+    }
+
+    std::string GetName() override
+    {
+        return "шар!\n\t";
+    }
+
 };

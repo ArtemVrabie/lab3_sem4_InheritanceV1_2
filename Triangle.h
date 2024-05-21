@@ -1,37 +1,38 @@
 #include <iostream>
-#include <string>
-#include <cmath>
 #include "Shape2D.h"
 
 class Triangle : public Shape2D {
 private:
 
-	void CalculateArea() override {
-		area = (base * height) / 2;
-	}
+    float base;
+    float height;
 
-	float base, height;
+    void CalculateArea() override {
+        area = base * height / 2;
+    }
 
 public:
 
-	virtual void ShowInfo() = 0;
-	virtual std::string GetName() = 0;
+    Triangle(float base, float height)
+        : base(base), height(height) {}
 
-	Triangle(float base, float height)
-		: base(base), height(height) {}
+    void Scale(float scaleFactor) override
+    {
 
-	string GetName() override {
-		return "triangle";
-	}
-	
-	float GetArea() override {
-		CalculateArea();
-		return this->area;
-	}
-	void ShowInfo() override {
-		std::cout << "Я треугольник " << std::endl;
-		std::cout << "Длина основания = " << base << std::endl;
-		std::cout << "Моя высота = " << height << std::endl;
-		std::cout << "Моя площадь = " << this->GetArea() << "\n" << std::endl;
-	}
+        base *= scaleFactor;
+        height *= scaleFactor;
+        CalculateArea();
+
+    };
+
+    void ShowInfo() override
+    {
+        std::cout << "Я - " << GetName() << "Моя площадь - " << GetArea() << "!\n\tМоё основание - " << base << "!\n\tМоя высота - " << height << "!";
+    }
+
+    std::string GetName() override
+    {
+        return "треугольник!\n\t";
+    }
+
 };
