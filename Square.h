@@ -1,15 +1,18 @@
+#pragma once
+
 #include <iostream>
-#include <string>
-#include <cmath>
 #include "Shape2D.h"
 
 class Square : public Shape2D {
 private:
+
     float side;
     void CalculateArea() override {
         area = side * side;
     }
+    
 public:
+
     Square(float side)
         : side(side) {}
 

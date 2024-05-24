@@ -1,9 +1,8 @@
+#pragma once
+
 #include <iostream>
-#include <string>
-#include <cmath>
 #include "Shape2D.h"
 
-constexpr auto PI = 3.14;
 
 class Circle : public Shape2D {
 private:
@@ -11,8 +10,9 @@ private:
     void CalculateArea() override {
         area = radius * radius * 3, 1415;
     }
-
+    
 public:
+
     Circle(float radius)
         :radius(radius) {}
 
@@ -26,7 +26,7 @@ public:
 
     void ShowInfo() override
     {
-        std::cout << "Я - " << GetName() << "Моя площадь - " << GetArea() << "!\n\tМой радиус - " << radius << "!";
+        std::cout << "Я - " << GetName() <<"Моя площадь = " << GetArea() << "!\n\t Мой радиус = " << radius << "!";
     }
 
     std::string GetName() override

@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include "Shape3D.h"
 #include "Triangle.h"

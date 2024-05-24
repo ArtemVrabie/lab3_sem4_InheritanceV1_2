@@ -1,10 +1,13 @@
+#pragma once
 
 #include "Shape.h"
 
 class Shape2D : public Shape {
 protected:
-    float area = 0;
+
+    float area;
     void virtual CalculateArea() = 0;
+
 public:
 
     float GetArea() {

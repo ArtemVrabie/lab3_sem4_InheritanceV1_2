@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <string>
 #include "Shape.h"
@@ -7,6 +9,8 @@ protected:
     float volume = 0;
     void virtual CalculateVolume() = 0;
 public:
+    
+
     void GetVolume() {
         CalculateVolume();
         std::cout << "\n\t Мой объем - " << volume << "!!!\n\t";
